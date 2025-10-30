@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+    Página principal do aplicativo de chat de suporte da Auto Peças.
+    Define a interface do usuário com layout responsivo usando Grid e componentes MAUI.
+    Inclui header, área de chat e painéis de opções/entrada de texto.
+-->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoPecasChat.MainPage"
+             BackgroundColor="#3C3C3C">
+
+    <!-- Layout principal usando Grid com 3 linhas: Header, Chat e Painéis -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>  <!-- Header fixo -->
+            <RowDefinition Height="*"/>    <!-- Chat expansível -->
+            <RowDefinition Height="Auto"/> <!-- Painéis de tamanho automático -->
+        </Grid.RowDefinitions>
+
+        <!-- Cabeçalho da aplicação -->
+        <Grid Grid.Row="0" BackgroundColor="#2B2B2B" Padding="15">
+            <Label Text="🔧 Suporte Auto Peças"
+                   TextColor="White"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+        </Grid>
+
+        <!-- Área de mensagens do chat com scroll -->
+        <ScrollView Grid.Row="1" x:Name="ChatScrollView" Padding="10">
+            <VerticalStackLayout x:Name="ChatContainer" Spacing="10">
+                <!-- Mensagens serão adicionadas aqui dinamicamente via código C# -->
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Painel de opções de menu (visível por padrão) -->
+        <Grid Grid.Row="2" BackgroundColor="#2B2B2B" Padding="15" x:Name="OptionsPanel">
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Como posso ajudar você hoje?"
+                       TextColor="White"
+                       FontSize="16"
+                       FontAttributes="Bold"
+                       Margin="0,0,0,10"/>
+
+                <!-- Botões de opções de suporte -->
+                <Button Text="📦 Consultar Frete"
+                        BackgroundColor="#CC0000"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Clicked="OnConsultarFreteClicked"
+                        CornerRadius="8"
+                        HeightRequest="50"/>
+
+                <Button Text="🔍 Consultar Pedido"
+                        BackgroundColor="#CC0000"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Clicked="OnConsultarPedidoClicked"
+                        CornerRadius="8"
+                        HeightRequest="50"/>
+
+                <Button Text="❌ Cancelar Pedido"
+                        BackgroundColor="#CC0000"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Clicked="OnCancelarPedidoClicked"
+                        CornerRadius="8"
+                        HeightRequest="50"/>
+
+                <Button Text="💳 Problemas com Pagamento"
+                        BackgroundColor="#CC0000"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Clicked="OnProblemasPagamentoClicked"
+                        CornerRadius="8"
+                        HeightRequest="50"/>
+
+                <Button Text="❓ Dúvidas sobre Produto"
+                        BackgroundColor="#CC0000"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Clicked="OnDuvidasProdutoClicked"
+                        CornerRadius="8"
+                        HeightRequest="50"/>
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Painel de entrada de texto (oculto inicialmente) -->
+        <Grid Grid.Row="2" BackgroundColor="#2B2B2B" Padding="15" x:Name="InputPanel" IsVisible="False">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>      <!-- Campo de texto expansível -->
+                <ColumnDefinition Width="Auto"/>  <!-- Botão de tamanho fixo -->
+            </Grid.ColumnDefinitions>
+
+            <!-- Campo de entrada de texto -->
+            <Entry x:Name="MessageEntry"
+                   Grid.Column="0"
+                   Placeholder="Digite sua mensagem..."
+                   PlaceholderColor="#999999"
+                   TextColor="White"
+                   BackgroundColor="#3C3C3C"
+                   Margin="0,0,10,0"
+                   VerticalOptions="Center"
+                   HeightRequest="45"/>
+
+            <!-- Botão de envio -->
+            <Button Grid.Column="1"
+                    Text="Enviar"
+                    BackgroundColor="#CC0000"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Clicked="OnSendMessageClicked"
+                    CornerRadius="8"
+                    WidthRequest="90"
+                    HeightRequest="45"/>
+        </Grid>
+    </Grid>
+
+</ContentPage>
