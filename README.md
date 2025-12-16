@@ -22,12 +22,6 @@ Projeto acadêmico desenvolvido em **C# utilizando .NET MAUI**, com o objetivo d
 ## Objetivo do Projeto
 Projeto desenvolvido com fins acadêmicos, com foco na prática de **lógica de programação**, **programação orientada a objetos (POO)**, **organização de código** e **integração com banco de dados**.
 
-## Como Executar o Projeto
-1. Clonar o repositório
-2. Abrir o arquivo `.sln` no Visual Studio
-3. Restaurar os pacotes do projeto
-4. Configurar a string de conexão com o banco de dados
-5. Executar o projeto pelo Visual Studio
 
 ## Observações
 Este projeto foi desenvolvido com fins educacionais, visando o aprendizado prático e a consolidação de conceitos fundamentais de desenvolvimento de software.
